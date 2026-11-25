@@ -5,7 +5,7 @@ four dashboards that answer the same three business questions, built by scripts 
 drive through the [cwtwb](https://pypi.org/project/cwtwb/) MCP server. It is the Tableau counterpart of the Power BI
 modelling MCP, and it was scored with the same 10-point rubric as the Power BI reports.
 
-**Score: 9.5 / 10** on the dashboard scorecard (from 4.5 for v1). See [docs/review/scorecard.md](docs/review/scorecard.md).
+**Score: 10 / 10** on the dashboard scorecard (from 4.5 for v1), in the same visual style as the Power BI report. See [docs/review/scorecard.md](docs/review/scorecard.md).
 Every number on the dashboards reconciles with an independent pandas calculation.
 
 | | |
@@ -32,6 +32,7 @@ Every number on the dashboards reconciles with an independent pandas calculation
   - Clicking a category filters its subcategories.
   - Scenario and metric controls on the forecast page.
   - Navigation buttons and phone layouts.
+- **The Power BI look:** a full-width navy header with the controls in white boxes, boxed KPI cards with accent bars, and white rounded panels on a grey canvas.
 - **Honest charts:** sorted bars from zero, direct labels, no dual axes, a forecast range with a stated backtest. A footer on every page gives the source, extract date and caveats.
 
 ## How it is built

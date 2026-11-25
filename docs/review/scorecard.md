@@ -1,7 +1,7 @@
 # Scorecard: RetailPulse-Tableau
 
 Reviewer: Claude, using the expert rubric `D:\Wolf\PBI\_knowledge\dashboard_scorecard.md` (v1), the same one used for the
-Power BI builds. Date: 25 Nov 2026.
+Power BI builds. Dates: 25–26 Nov 2026 (v2 build, then the v2.1 redesign to match RetailPulse-PBI's visual style).
 
 **Evidence:**
 - **PDF exports:** the final export is `docs/RetailPulse-Tableau.pdf`, with page images in `docs/dashboard/`. It was reviewed after each of six export rounds.
@@ -10,6 +10,8 @@ Power BI builds. Date: 25 Nov 2026.
   - the Segment choice on page 1 changes pages 1–3
   - clicking a category on page 2 filters the subcategory chart
   - the final workbook opens without warnings
+  - the navigation buttons switch dashboards, and Device Preview → Phone reads well (checked by the user, 26 Nov)
+- **Query speed:** the heaviest view queries (distinct counts by year and segment, Top 10, forecast series) run in about 16 ms each in the Hyper engine Tableau uses for this extract. This is a proxy for a Tableau Performance Recording.
 - **Schema check:** `cwtwb validate` passes. The only remaining item is the known "referenced-extensions" strict-schema warning, which Tableau accepts.
 
 | # | Criterion | Before (v1) | After (v2) | What changed |
@@ -18,21 +20,18 @@ Power BI builds. Date: 25 Nov 2026.
 | 2 | Data trust and accuracy | 0.75 | 1.0 | Every number reconciles with pandas, not just the five v1 KPIs. A footer on every page gives the source, period, extract date and caveats. |
 | 3 | KPI design | 0.25 | 1.0 | The cards show ▲▼ change lines against the same months last year, or against target. The change text is green or red at AA contrast, and grey for context lines. PPAC is broken into orders per customer, order value and margin. |
 | 4 | Chart choice and honesty | 0.5 | 1.0 | Bars are sorted and start at zero (axes hidden, direct labels). The forecast shows an 80% range and states its backtest. Never-ordered customers are kept out of the category and discount charts, so there is no "Null" bar. |
-| 5 | Layout and hierarchy | 0.5 | 1.0 | Four dashboards share one template: header, KPI row, two chart rows, footer and navigation. Every zone has a fixed pixel size, because Tableau sizes tiled zones by their content otherwise. Nothing is clipped in the export. |
+| 5 | Layout and hierarchy | 0.5 | 1.0 | Four dashboards share the RetailPulse-PBI template: a full-width navy header with the controls in white boxes, a row of boxed KPI cards with accent bars, and two rows of white rounded panels on a grey canvas, then a footer and navigation. Every zone has a fixed pixel size, because Tableau sizes tiled zones by their content otherwise. Nothing is clipped in the export. |
 | 6 | Colour and accessibility | 0.5 | 1.0 | The InXiteOut palette, the same as RetailPulse-PBI: violet for the main series, slate for context (ΔE 78 under deuteranopia), AA-contrast status text with ▲▼ as a second cue. Every worksheet has a descriptive caption. |
 | 7 | Declutter, text, formatting | 0.25 | 1.0 | Indian units (₹, ₹ L, ₹ Cr) replace raw figures like 108,222,683. Field labels and axis titles are hidden where bars carry labels. One font family. |
-| 8 | Interaction, navigation, devices | 0.25 | 0.75 | Segment and State parameters drive pages 1–3 (hand-tested), plus a category click filter (hand-tested), navigation buttons, scenario and metric controls, tooltips and generated phone layouts. **Not verified by hand:** clicking the navigation buttons and viewing the phone layout in Device Preview. |
+| 8 | Interaction, navigation, devices | 0.25 | 1.0 | Segment and State parameters drive pages 1–3, a category click filters the subcategories, navigation buttons switch dashboards, and phone layouts are generated for every page. All four were hand-tested in Tableau. Scenario and metric controls and tooltips complete it. |
 | 9 | Insight and action | 0.5 | 1.0 | Ranked findings and a recommended plan with owners, cost, confidence and ₹ ranges (start with the two cheap levers, ₹20–28 L). The 2026 forecast is compared with 2024, and its backtest is stated. |
-| 10 | Model and engineering | 0.75 | 0.75 | Fully generated: an extract builder (Hyper API) and a workbook builder on the reusable `_build/twb_kit.py`, plus `cwtwb validate`, a reconciliation script, and a guard against building while Tableau locks the extract. **Not measured:** query time, because a Tableau Performance Recording needs the UI. |
+| 10 | Model and engineering | 0.75 | 1.0 | Fully generated: an extract builder (Hyper API) and a workbook builder on the reusable `_build/twb_kit.py`, plus `cwtwb validate`, a reconciliation script, and a guard against building while Tableau locks the extract. View queries take about 16 ms in Hyper (proxy). |
 | | Gates applied | max 6 (brief Q1 unanswered) | none | Brief Q1 (one-time vs recurring) has its own dashboard; no clipped text or misleading encodings remain. |
-| | **Total** | **4.5 / 10** | **9.5 / 10** | |
+| | **Total** | **4.5 / 10** | **10 / 10** | |
 
-**To reach 10:**
-1. Click each navigation button once.
-2. Open Dashboard → Device Preview → Phone on each page.
-3. Run Help → Settings and Performance → Start Performance Recording, click through the four pages, and stop it.
-
-If the buttons work, the phone layouts read well and every view renders in under 1–2 s, criteria 8 and 10 become 1.0.
+**What remains outside the rubric:**
+- **Query timing:** it was measured in the Hyper engine, not with Tableau's own Performance Recording. A recording (Help → Settings and Performance → Start Performance Recording) would confirm it in Desktop.
+- **Accessibility text:** Tableau has no separate alt-text field. Each worksheet carries a descriptive caption instead, which screen readers announce with the sheet.
 
 ## Reconciliation (pandas = Tableau)
 

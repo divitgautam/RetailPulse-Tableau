@@ -22,6 +22,9 @@ from cwtwb.mcp import tools_workbook as T
 NAVY, VIOLET, SLATE, CORAL, INK, MUTED, LILAC = "#030734", "#682EFF", "#62748E", "#F05100", "#020618", "#62748E", "#C8C3F5"
 GOOD, BAD, WARN, NEUTRAL, BAND = "#1E7F4B", "#C0392B", "#A15F00", "#5B6B7F", "#9A86E8"
 NAV_PREFIX = "NAV|"
+CANVAS, LINE = "#F1F5F9", "#E2E8F0"
+# white panel with a light border and rounded corners on a grey canvas (the RetailPulse-PBI visual style)
+PANEL = {"background-color": "#FFFFFF", "border-color": LINE, "border-style": "solid", "border-width": "1", "margin": "4", "padding": "6"}
 
 
 def hyper_unlocked(path):
@@ -127,9 +130,10 @@ class Book:
     def title(self, name, title_field=None, subtitle="", static=None, filters=(), header=False):
         """Title sheet: an action title from a string calc (follows the filters) plus a subtitle line."""
         big = {"fontsize": 15 if header else 10, "bold": True, "fontcolor": "#FFFFFF" if header else INK, "fontalignment": "0"}
-        runs = [dict(big, field=title_field) if title_field else dict(big, text=static)]
+        pad = "  " if header else ""      # indent the header text off the navy band's edge
+        runs = ([dict(big, text=pad)] if pad else []) + [dict(big, field=title_field) if title_field else dict(big, text=static)]
         if subtitle:
-            runs += [{"text": "\n"}, {"text": subtitle, "fontsize": 10 if header else 9,
+            runs += [{"text": "\n"}, {"text": pad + subtitle, "fontsize": 10 if header else 9,
                                       "fontcolor": LILAC if header else MUTED, "fontalignment": "0"}]
         style = {"disable_tooltip": True, "hide_borders": True}
         if header:
@@ -184,9 +188,21 @@ def static_title(title, subtitle=""):
 
 
 def block(title_sheet, chart_sheet, weight=1, title_h=58):
-    """A chart with its title above it: a title sheet name, or a static_title() text zone."""
+    """A chart panel: its title (a title sheet name, or a static_title() text zone) above the chart."""
     top = dict(title_sheet, fixed_size=title_h) if isinstance(title_sheet, dict) else ws(title_sheet, fixed_size=title_h)
-    return {"type": "container", "direction": "vertical", "weight": weight, "children": [top, ws(chart_sheet, weight=1)]}
+    return {"type": "container", "direction": "vertical", "weight": weight, "style": PANEL, "corner_radius": 8,
+            "children": [top, ws(chart_sheet, weight=1)]}
+
+
+def panel(node, weight=1):
+    """Put a text zone (findings, plan) in the same white panel as the charts."""
+    return dict(node, weight=weight, style=PANEL, corner_radius=8)
+
+
+def card_zone(name, accent=VIOLET):
+    """KPI card: a white panel with a coloured accent bar on its left edge."""
+    return {"type": "container", "direction": "horizontal", "weight": 1, "style": dict(PANEL, padding="2"), "corner_radius": 8,
+            "children": [{"type": "empty", "fixed_size": 4, "style": {"background-color": accent}}, ws(name, weight=1)]}
 
 
 def nav_bar(pages, current):

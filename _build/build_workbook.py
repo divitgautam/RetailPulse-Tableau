@@ -19,7 +19,8 @@ import pandas as pd
 from cwtwb.mcp import tools_workbook as T
 
 import twb_kit as k
-from twb_kit import BAD, BAND, CORAL, GOOD, INK, NAVY, NEUTRAL, SLATE, VIOLET, WARN, block, change, inr, num, pct, static_title, step, ws
+from twb_kit import (BAD, BAND, CANVAS, CORAL, GOOD, INK, NAVY, NEUTRAL, SLATE, VIOLET, WARN, block, card_zone, change, inr, num,
+                     panel, pct, static_title, step, ws)
 
 ROOT = Path(__file__).resolve().parents[1]
 HYPER = ROOT / "data" / "retailpulse.hyper"
@@ -58,10 +59,11 @@ C("Max Date", "{FIXED : MAX([Order Date])}", "date")
 C("Is CY", "YEAR([Order Date]) = YEAR([Max Date])", "boolean")
 C("Is PY", "YEAR([Order Date]) = YEAR([Max Date]) - 1 AND [Order Date] <= DATEADD('year', -1, [Max Date])", "boolean")
 C("Like for Like Months", "MONTH([Order Date]) <= MONTH([Max Date])", "boolean")
-C("First Order Quarter", "RIGHT(STR(YEAR([First Order Date])), 2) + ' Q' + STR(DATEPART('quarter', [First Order Date]))", "string")
+C("First Order Year", "STR(YEAR([First Order Date]))", "string")
+C("First Order Qtr", "'Q' + STR(DATEPART('quarter', [First Order Date]))", "string")
 C("Order Frequency", "IF [Lifetime Orders] >= 4 THEN '4+ orders' ELSEIF [Lifetime Orders] = 1 THEN '1 order' "
   "ELSE STR([Lifetime Orders]) + ' orders' END", "string")
-C("Item Discount", "[Discount %]", "integer", role="dimension", field_type="ordinal")
+C("Item Discount", "[Discount %]", "integer", role="dimension", field_type="ordinal", fmt='n0"%"')
 
 # ---------------------------------------------------------------- measures
 C("Gross Profit ₹ L", "SUM([RGP]) / 100000", fmt='n"₹"#,##0.0" L"')
@@ -169,8 +171,7 @@ S("X Low", inr("[Low Category GP]") + ' + " · " + ' + pct("[Low Category GP] / 
 CYL = 'STR(YEAR(MAX([Max Date])))'
 MON = "LEFT(DATENAME('month', MAX([Max Date])), 3)"
 S("Title Retention", pct("[Repeat Rate]") + ' + " of buyers came back, and they earn " + ' + pct("[Recurring Profit Share]") + ' + " of gross profit"')
-S("Title New Buyers", '"Last sign-up " + LEFT(DATENAME(\'month\', MAX([Join Date])), 3) + " " + '
-  'STR(YEAR(MAX([Join Date]))) + "; new buyers " + ' + ' + "→" + '.join(f"STR([New Buyers {y}])" for y in YEARS))
+S("Title New Buyers", f'"New buyers " + IIF([New Buyers {YEARS[-1]}] < [New Buyers {YEARS[0]}], "fell ", "rose ") + ' + ' + "→" + '.join(f"STR([New Buyers {y}])" for y in YEARS))
 S("Title Frequency", pct("[One-Time Customers] / [Buyers]") + ' + " ordered once; " + ' + pct("[Buyers 3plus]") + ' + " ordered 3+ times"')
 S("Title Value", '"Recurring earn " + ' + num("[Value Multiplier]", 1) + ' + "x: " + ' + L2("[PP Recurring]") + ' + " vs " + '
   + L2("[PP One-Time]"))
@@ -213,9 +214,9 @@ p1_cards = [("K Buyers", "Buying customers", "V Buyers", [("X Buyers", NEUTRAL)]
             ("K Never", "Never ordered", "V Never", [("X Never", WARN)])]
 for name, label, value, extra in p1_cards:
     b.card(name, label, value, extra, filters=P1F)
-b.title("T New Buyers", "Title New Buyers", "First-time buyers by quarter of their first order", filters=P1F)
+b.title("T New Buyers", "Title New Buyers", "First-time buyers per quarter of their first order", filters=P1F)
 b.bar("New Buyers by Quarter", P1F, "Column chart of first-time buyers by quarter: new buyers fall each year after sign-ups stop.",
-        columns=["First Order Quarter"], rows=["New Buyers"], label="New Buyers", filters=[BUYERS_ONLY])
+        columns=["First Order Year", "First Order Qtr"], rows=["New Buyers"], label="New Buyers", filters=[BUYERS_ONLY])
 b.title("T Frequency", "Title Frequency", "Buying customers by lifetime order count", filters=P1F)
 b.bar("Order Frequency Mix", P1F, "Column chart of buying customers by lifetime orders, from 1 to 4+.",
         columns=["Order Frequency"], rows=["New Buyers"], label="New Buyers", filters=[BUYERS_ONLY])
@@ -237,8 +238,8 @@ b.title("P2 Header", "Title Profit", f"Cards: latest YTD vs same months last yea
         filters=P2F, header=True)
 for key, label in (("GP", "Gross profit"), ("NS", "Net sales"), ("Margin", "Gross margin"), ("AOV", "Order value")):
     b.card(f"K2 {key}", label, f"V {key}", [(f"U {key}", GOOD), (f"D {key}", BAD)], filters=P2F)
-b.card("K2 Top", "Top category", "Top Category", [("X Top", NEUTRAL)], filters=P2F, size=15)
-b.card("K2 Low", "Lowest category", "Low Category", [("X Low", NEUTRAL)], filters=P2F, size=15)
+b.card("K2 Top", "Top category", "Top Category", [("X Top", NEUTRAL)], filters=P2F, size=13)
+b.card("K2 Low", "Lowest category", "Low Category", [("X Low", NEUTRAL)], filters=P2F, size=13)
 b.title("T GP Category", "Title GP Category", "Gross profit by category, ₹ L, highest to lowest  |  click a bar", filters=P2F)
 b.bar("Profit by Category", P2F, "Bar chart of gross profit by category in lakh rupees, sorted highest to lowest.",
         rows=["Category"], columns=["Gross Profit ₹ L"], label="Gross Profit ₹ L", sort_descending="Gross Profit ₹ L",
@@ -313,10 +314,10 @@ S("X F Hit", 'IF NOT ISNULL([F Hit]) THEN "of runs reach the target" END')
 for key, cur, base_, unit in (("GP", "[F GP]", "[B GP]", lakh1("[B GP]")), ("Orders", "[F Orders]", "[B Orders]", "STR(ROUND([B Orders], 0))"),
                               ("New", "[F New]", "[B New]", "STR(ROUND([B New], 0))")):
     good, bad = change(cur, base_, label="vs 2024")
-    S(f"U F {key}", good.replace('" vs 2024" END', f'" vs 2024 (" + {unit} + ")" END'))
-    S(f"D F {key}", bad.replace('" vs 2024" END', f'" vs 2024 (" + {unit} + ")" END'))
-S("U F PPAC", 'IF [F PPAC] >= [F Target] THEN STR(ROUND(([F PPAC] - [F Target]) / [F Target] * 100, 0)) + "% above " + ' + f"({inr('[F Target]')})" + ' + " target" END')
-S("D F PPAC", 'IF [F PPAC] < [F Target] THEN STR(ROUND(([F Target] - [F PPAC]) / [F Target] * 100, 0)) + "% below " + ' + f"({inr('[F Target]')})" + ' + " target" END')
+    S(f"U F {key}", good.replace('" vs 2024" END', f'" vs " + {unit} END'))
+    S(f"D F {key}", bad.replace('" vs 2024" END', f'" vs " + {unit} END'))
+S("U F PPAC", 'IF [F PPAC] >= [F Target] THEN STR(ROUND(([F PPAC] - [F Target]) / [F Target] * 100, 0)) + "% above target" END')
+S("D F PPAC", 'IF [F PPAC] < [F Target] THEN STR(ROUND(([F Target] - [F PPAC]) / [F Target] * 100, 0)) + "% below target" END')
 S("Title Forecast", '"2026 gross profit ≈ " + [V F GP] + " (80% range " + [V F Range] + "), scenario " + LEFT([Scenario Choice], 1)')
 b.title("P4 Header", "Title Forecast", "Simulation, 2,000 runs  |  Median and 80% range  |  Cards vs 2024 (last full year)", header=True)
 b.card("K4 GP", "2026 gross profit", "V F GP", [("U F GP", GOOD), ("D F GP", BAD)])
@@ -379,10 +380,12 @@ PAGES = [("1 Retention", "1 Retention"), ("2 Profit", "2 Profit"), ("3 KPI", "3 
 
 
 def page(name, header, filters, cards, row2, row3):
+    """Grey canvas: full-width navy header with the controls in white boxes, a row of KPI cards, two rows of chart
+    panels, then the footer and navigation."""
     top = [ws(header, weight=1)] + filters
-    return {"type": "container", "direction": "vertical", "children": [
-        {"type": "container", "direction": "horizontal", "fixed_size": 74, "children": top},
-        {"type": "container", "direction": "horizontal", "fixed_size": 128, "children": [ws(c, weight=1) for c in cards]},
+    return {"type": "container", "direction": "vertical", "style": {"background-color": CANVAS}, "children": [
+        {"type": "container", "direction": "horizontal", "fixed_size": 74, "style": {"background-color": NAVY}, "children": top},
+        {"type": "container", "direction": "horizontal", "fixed_size": 136, "children": [card_zone(c, WARN if c == "K Never" else VIOLET) for c in cards]},
         {"type": "container", "direction": "horizontal", "weight": 1, "children": row2},
         {"type": "container", "direction": "horizontal", "weight": 1, "children": row3},
         {"type": "container", "direction": "horizontal", "fixed_size": 30, "children": [dict(FOOTER, weight=1)] + k.nav_bar(PAGES, name)},
@@ -394,26 +397,26 @@ def flt(sheet, field, mode="dropdown"):
 
 
 def param(p, width=220):
-    return {"type": "paramctrl", "parameter": p, "mode": "compact", "fixed_size": width}
+    """Parameter dropdown in a white box on the navy header (like the Power BI slicers)."""
+    return {"type": "paramctrl", "parameter": p, "mode": "compact", "fixed_size": width,
+            "style": {"background-color": "#FFFFFF", "margin": "10", "padding": "2"}}
 
 
 layouts = {
     "1 Retention": page("1 Retention", "P1 Header", [param("Segment Choice", 190), param("State Choice", 190)], [c[0] for c in p1_cards],
                         [block("T New Buyers", "New Buyers by Quarter"), block("T Frequency", "Order Frequency Mix"), block("T Value", "Profit per Customer")],
-                        [block("T Profit Type", "Profit by Type"), block("T Segment", "Repeat Rate by Segment"), dict(retention_text, weight=1)]),
+                        [block("T Profit Type", "Profit by Type"), block("T Segment", "Repeat Rate by Segment"), panel(retention_text)]),
     "2 Profit": page("2 Profit", "P2 Header", [param("Segment Choice", 190)], ["K2 GP", "K2 NS", "K2 Margin", "K2 AOV", "K2 Top", "K2 Low"],
                      [block("T GP Category", "Profit by Category"), block("T Margin Category", "Margin by Category")],
                      [block(static_title("Top 10 subcategories by gross profit, ₹ L", "Click a category above to filter"), "Profit by Subcategory"), block("T Discount", "Margin by Discount")]),
     "3 KPI": page("3 KPI", "P3 Header", [param("Segment Choice", 190)], ["K3 PPAC", "K3 Target", "K3 OPC", "K3 AOV", "K3 Margin", "K3 Active"],
                   [block("T PPAC Years", "PPAC by Year", weight=3), block("T PPAC Segment", "PPAC by Segment", weight=2)],
-                  [block("T Drivers", "PPAC Drivers", weight=3), dict(kpi_text, weight=2)]),
+                  [block("T Drivers", "PPAC Drivers", weight=3), panel(kpi_text, 2)]),
     "4 Forecast": page("4 Forecast", "P4 Header", [param("Scenario Choice"), param("Chart Metric")],
                        ["K4 GP", "K4 Range", "K4 Orders", "K4 New", "K4 PPAC", "K4 Hit"],
-                       [{"type": "container", "direction": "vertical", "weight": 1, "children": [
-                           dict(static_title("Monthly history and forecast: single months swing, so plan on quarterly totals",
-                                             "₹ L for profit and sales, counts otherwise  |  light violet = 80% range  |  backtest, 6 held-out months: orders -1.4%, profit -10.2%, inside the range"), fixed_size=58),
-                           ws("Forecast Trend", weight=1)]}],
-                       [block("T Levers", "Profit Levers", weight=11), dict(plan, weight=9)]),
+                       [block(static_title("Monthly history and forecast: single months swing, so plan on quarterly totals",
+                                             "₹ L for profit and sales, counts otherwise  |  light violet = 80% range  |  backtest, 6 held-out months: orders -1.4%, profit -10.2%, inside the range"), "Forecast Trend")],
+                       [block("T Levers", "Profit Levers", weight=11), panel(plan, 9)]),
 }
 p1_sheets = [s for s in b.sheets if s.startswith(("P1", "K ", "T New", "T Freq", "T Value", "T Profit Type", "T Segment"))] + \
             ["New Buyers by Quarter", "Order Frequency Mix", "Profit per Customer", "Profit by Type", "Repeat Rate by Segment"]

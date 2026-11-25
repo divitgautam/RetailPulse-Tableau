@@ -1,11 +1,17 @@
 {
   "type": "container",
   "direction": "vertical",
+  "style": {
+    "background-color": "#F1F5F9"
+  },
   "children": [
     {
       "type": "container",
       "direction": "horizontal",
       "fixed_size": 74,
+      "style": {
+        "background-color": "#030734"
+      },
       "children": [
         {
           "type": "worksheet",
@@ -19,67 +25,221 @@
           "type": "paramctrl",
           "parameter": "Scenario Choice",
           "mode": "compact",
-          "fixed_size": 220
+          "fixed_size": 220,
+          "style": {
+            "background-color": "#FFFFFF",
+            "margin": "10",
+            "padding": "2"
+          }
         },
         {
           "type": "paramctrl",
           "parameter": "Chart Metric",
           "mode": "compact",
-          "fixed_size": 220
+          "fixed_size": 220,
+          "style": {
+            "background-color": "#FFFFFF",
+            "margin": "10",
+            "padding": "2"
+          }
         }
       ]
     },
     {
       "type": "container",
       "direction": "horizontal",
-      "fixed_size": 128,
+      "fixed_size": 136,
       "children": [
         {
-          "type": "worksheet",
-          "name": "K4 GP",
-          "show_title": false,
-          "fit": "entire",
+          "type": "container",
+          "direction": "horizontal",
           "weight": 1,
+          "style": {
+            "background-color": "#FFFFFF",
+            "border-color": "#E2E8F0",
+            "border-style": "solid",
+            "border-width": "1",
+            "margin": "4",
+            "padding": "2"
+          },
+          "corner_radius": 8,
+          "children": [
+            {
+              "type": "empty",
+              "fixed_size": 4,
+              "style": {
+                "background-color": "#682EFF"
+              }
+            },
+            {
+              "type": "worksheet",
+              "name": "K4 GP",
+              "show_title": false,
+              "fit": "entire",
+              "weight": 1,
+              "fixed_size": 229
+            }
+          ],
           "fixed_size": 233
         },
         {
-          "type": "worksheet",
-          "name": "K4 Range",
-          "show_title": false,
-          "fit": "entire",
+          "type": "container",
+          "direction": "horizontal",
           "weight": 1,
+          "style": {
+            "background-color": "#FFFFFF",
+            "border-color": "#E2E8F0",
+            "border-style": "solid",
+            "border-width": "1",
+            "margin": "4",
+            "padding": "2"
+          },
+          "corner_radius": 8,
+          "children": [
+            {
+              "type": "empty",
+              "fixed_size": 4,
+              "style": {
+                "background-color": "#682EFF"
+              }
+            },
+            {
+              "type": "worksheet",
+              "name": "K4 Range",
+              "show_title": false,
+              "fit": "entire",
+              "weight": 1,
+              "fixed_size": 229
+            }
+          ],
           "fixed_size": 233
         },
         {
-          "type": "worksheet",
-          "name": "K4 Orders",
-          "show_title": false,
-          "fit": "entire",
+          "type": "container",
+          "direction": "horizontal",
           "weight": 1,
+          "style": {
+            "background-color": "#FFFFFF",
+            "border-color": "#E2E8F0",
+            "border-style": "solid",
+            "border-width": "1",
+            "margin": "4",
+            "padding": "2"
+          },
+          "corner_radius": 8,
+          "children": [
+            {
+              "type": "empty",
+              "fixed_size": 4,
+              "style": {
+                "background-color": "#682EFF"
+              }
+            },
+            {
+              "type": "worksheet",
+              "name": "K4 Orders",
+              "show_title": false,
+              "fit": "entire",
+              "weight": 1,
+              "fixed_size": 229
+            }
+          ],
           "fixed_size": 233
         },
         {
-          "type": "worksheet",
-          "name": "K4 New",
-          "show_title": false,
-          "fit": "entire",
+          "type": "container",
+          "direction": "horizontal",
           "weight": 1,
+          "style": {
+            "background-color": "#FFFFFF",
+            "border-color": "#E2E8F0",
+            "border-style": "solid",
+            "border-width": "1",
+            "margin": "4",
+            "padding": "2"
+          },
+          "corner_radius": 8,
+          "children": [
+            {
+              "type": "empty",
+              "fixed_size": 4,
+              "style": {
+                "background-color": "#682EFF"
+              }
+            },
+            {
+              "type": "worksheet",
+              "name": "K4 New",
+              "show_title": false,
+              "fit": "entire",
+              "weight": 1,
+              "fixed_size": 229
+            }
+          ],
           "fixed_size": 233
         },
         {
-          "type": "worksheet",
-          "name": "K4 PPAC",
-          "show_title": false,
-          "fit": "entire",
+          "type": "container",
+          "direction": "horizontal",
           "weight": 1,
+          "style": {
+            "background-color": "#FFFFFF",
+            "border-color": "#E2E8F0",
+            "border-style": "solid",
+            "border-width": "1",
+            "margin": "4",
+            "padding": "2"
+          },
+          "corner_radius": 8,
+          "children": [
+            {
+              "type": "empty",
+              "fixed_size": 4,
+              "style": {
+                "background-color": "#682EFF"
+              }
+            },
+            {
+              "type": "worksheet",
+              "name": "K4 PPAC",
+              "show_title": false,
+              "fit": "entire",
+              "weight": 1,
+              "fixed_size": 229
+            }
+          ],
           "fixed_size": 233
         },
         {
-          "type": "worksheet",
-          "name": "K4 Hit",
-          "show_title": false,
-          "fit": "entire",
+          "type": "container",
+          "direction": "horizontal",
           "weight": 1,
+          "style": {
+            "background-color": "#FFFFFF",
+            "border-color": "#E2E8F0",
+            "border-style": "solid",
+            "border-width": "1",
+            "margin": "4",
+            "padding": "2"
+          },
+          "corner_radius": 8,
+          "children": [
+            {
+              "type": "empty",
+              "fixed_size": 4,
+              "style": {
+                "background-color": "#682EFF"
+              }
+            },
+            {
+              "type": "worksheet",
+              "name": "K4 Hit",
+              "show_title": false,
+              "fit": "entire",
+              "weight": 1,
+              "fixed_size": 229
+            }
+          ],
           "fixed_size": 235
         }
       ]
@@ -93,6 +253,15 @@
           "type": "container",
           "direction": "vertical",
           "weight": 1,
+          "style": {
+            "background-color": "#FFFFFF",
+            "border-color": "#E2E8F0",
+            "border-style": "solid",
+            "border-width": "1",
+            "margin": "4",
+            "padding": "6"
+          },
+          "corner_radius": 8,
           "children": [
             {
               "type": "text",
@@ -119,13 +288,13 @@
               "show_title": false,
               "fit": "entire",
               "weight": 1,
-              "fixed_size": 276
+              "fixed_size": 272
             }
           ],
           "fixed_size": 1400
         }
       ],
-      "fixed_size": 334
+      "fixed_size": 330
     },
     {
       "type": "container",
@@ -136,6 +305,15 @@
           "type": "container",
           "direction": "vertical",
           "weight": 11,
+          "style": {
+            "background-color": "#FFFFFF",
+            "border-color": "#E2E8F0",
+            "border-style": "solid",
+            "border-width": "1",
+            "margin": "4",
+            "padding": "6"
+          },
+          "corner_radius": 8,
           "children": [
             {
               "type": "worksheet",
@@ -150,7 +328,7 @@
               "show_title": false,
               "fit": "entire",
               "weight": 1,
-              "fixed_size": 276
+              "fixed_size": 272
             }
           ],
           "fixed_size": 770
@@ -232,13 +410,19 @@
             }
           ],
           "style": {
-            "background-color": "#FFFFFF"
+            "background-color": "#FFFFFF",
+            "border-color": "#E2E8F0",
+            "border-style": "solid",
+            "border-width": "1",
+            "margin": "4",
+            "padding": "6"
           },
           "weight": 9,
+          "corner_radius": 8,
           "fixed_size": 630
         }
       ],
-      "fixed_size": 334
+      "fixed_size": 330
     },
     {
       "type": "container",
@@ -249,7 +433,7 @@
           "type": "text",
           "runs": [
             {
-              "text": "Source: Online Sales Data, Jan 2023 – Oct 2025 · Extract 25 Nov 2026 · Profit excl. shipping, marketing · Synthetic data",
+              "text": "Source: Online Sales Data, Jan 2023 – Oct 2025 · Extract 26 Nov 2026 · Profit excl. shipping, marketing · Synthetic data",
               "font_size": "8",
               "font_color": "#5B6B7F"
             }
