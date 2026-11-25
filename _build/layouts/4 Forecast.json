@@ -1,0 +1,283 @@
+{
+  "type": "container",
+  "direction": "vertical",
+  "children": [
+    {
+      "type": "container",
+      "direction": "horizontal",
+      "fixed_size": 74,
+      "children": [
+        {
+          "type": "worksheet",
+          "name": "P4 Header",
+          "show_title": false,
+          "fit": "entire",
+          "weight": 1,
+          "fixed_size": 960
+        },
+        {
+          "type": "paramctrl",
+          "parameter": "Scenario Choice",
+          "mode": "compact",
+          "fixed_size": 220
+        },
+        {
+          "type": "paramctrl",
+          "parameter": "Chart Metric",
+          "mode": "compact",
+          "fixed_size": 220
+        }
+      ]
+    },
+    {
+      "type": "container",
+      "direction": "horizontal",
+      "fixed_size": 128,
+      "children": [
+        {
+          "type": "worksheet",
+          "name": "K4 GP",
+          "show_title": false,
+          "fit": "entire",
+          "weight": 1,
+          "fixed_size": 233
+        },
+        {
+          "type": "worksheet",
+          "name": "K4 Range",
+          "show_title": false,
+          "fit": "entire",
+          "weight": 1,
+          "fixed_size": 233
+        },
+        {
+          "type": "worksheet",
+          "name": "K4 Orders",
+          "show_title": false,
+          "fit": "entire",
+          "weight": 1,
+          "fixed_size": 233
+        },
+        {
+          "type": "worksheet",
+          "name": "K4 New",
+          "show_title": false,
+          "fit": "entire",
+          "weight": 1,
+          "fixed_size": 233
+        },
+        {
+          "type": "worksheet",
+          "name": "K4 PPAC",
+          "show_title": false,
+          "fit": "entire",
+          "weight": 1,
+          "fixed_size": 233
+        },
+        {
+          "type": "worksheet",
+          "name": "K4 Hit",
+          "show_title": false,
+          "fit": "entire",
+          "weight": 1,
+          "fixed_size": 235
+        }
+      ]
+    },
+    {
+      "type": "container",
+      "direction": "horizontal",
+      "weight": 1,
+      "children": [
+        {
+          "type": "container",
+          "direction": "vertical",
+          "weight": 1,
+          "children": [
+            {
+              "type": "text",
+              "runs": [
+                {
+                  "text": "Monthly history and forecast: single months swing, so plan on quarterly totals\n",
+                  "bold": true,
+                  "font_size": "10",
+                  "font_color": "#020618",
+                  "font_alignment": "0"
+                },
+                {
+                  "text": "₹ L for profit and sales, counts otherwise  |  light violet = 80% range  |  backtest, 6 held-out months: orders -1.4%, profit -10.2%, inside the range",
+                  "font_size": "9",
+                  "font_color": "#62748E",
+                  "font_alignment": "0"
+                }
+              ],
+              "fixed_size": 58
+            },
+            {
+              "type": "worksheet",
+              "name": "Forecast Trend",
+              "show_title": false,
+              "fit": "entire",
+              "weight": 1,
+              "fixed_size": 276
+            }
+          ],
+          "fixed_size": 1400
+        }
+      ],
+      "fixed_size": 334
+    },
+    {
+      "type": "container",
+      "direction": "horizontal",
+      "weight": 1,
+      "children": [
+        {
+          "type": "container",
+          "direction": "vertical",
+          "weight": 11,
+          "children": [
+            {
+              "type": "worksheet",
+              "name": "T Levers",
+              "show_title": false,
+              "fit": "entire",
+              "fixed_size": 58
+            },
+            {
+              "type": "worksheet",
+              "name": "Profit Levers",
+              "show_title": false,
+              "fit": "entire",
+              "weight": 1,
+              "fixed_size": 276
+            }
+          ],
+          "fixed_size": 770
+        },
+        {
+          "type": "text",
+          "runs": [
+            {
+              "text": "Recommended plan: start with the two cheap levers (₹20–28 L)\n",
+              "bold": true,
+              "font_size": "11",
+              "font_color": "#020618",
+              "font_alignment": "0"
+            },
+            {
+              "text": "1. Pricing: ",
+              "bold": true,
+              "font_size": "9",
+              "font_color": "#682EFF",
+              "font_alignment": "0"
+            },
+            {
+              "text": "cap item discounts at 10%, no stacking (+₹8.8–12.2 L, high confidence, no cost).\n",
+              "font_size": "9",
+              "font_color": "#020618",
+              "font_alignment": "0"
+            },
+            {
+              "text": "2. CRM: ",
+              "bold": true,
+              "font_size": "9",
+              "font_color": "#682EFF",
+              "font_alignment": "0"
+            },
+            {
+              "text": "first-order offer to the 80 never-ordered (+₹10.8–16.0 L, medium, low cost).\n",
+              "font_size": "9",
+              "font_color": "#020618",
+              "font_alignment": "0"
+            },
+            {
+              "text": "3. CRM: ",
+              "bold": true,
+              "font_size": "9",
+              "font_color": "#682EFF",
+              "font_alignment": "0"
+            },
+            {
+              "text": "second-order nudge, repeat rate 53% to 60% (+₹11.7 L; lowers PPAC).\n",
+              "font_size": "9",
+              "font_color": "#020618",
+              "font_alignment": "0"
+            },
+            {
+              "text": "4. Marketing: ",
+              "bold": true,
+              "font_size": "9",
+              "font_color": "#682EFF",
+              "font_alignment": "0"
+            },
+            {
+              "text": "find out why sign-ups stopped before spending on them (+₹10.9 L at the 2024 pace).\n",
+              "font_size": "9",
+              "font_color": "#020618",
+              "font_alignment": "0"
+            },
+            {
+              "text": "Size: ",
+              "bold": true,
+              "font_size": "9",
+              "font_color": "#682EFF",
+              "font_alignment": "0"
+            },
+            {
+              "text": "levers 1+2 add 20%–29% to the ₹96.9 L baseline (scenario A); levers overlap, so don't add all four.\n",
+              "font_size": "9",
+              "font_color": "#020618",
+              "font_alignment": "0"
+            }
+          ],
+          "style": {
+            "background-color": "#FFFFFF"
+          },
+          "weight": 9,
+          "fixed_size": 630
+        }
+      ],
+      "fixed_size": 334
+    },
+    {
+      "type": "container",
+      "direction": "horizontal",
+      "fixed_size": 30,
+      "children": [
+        {
+          "type": "text",
+          "runs": [
+            {
+              "text": "Source: Online Sales Data, Jan 2023 – Oct 2025 · Extract 25 Nov 2026 · Profit excl. shipping, marketing · Synthetic data",
+              "font_size": "8",
+              "font_color": "#5B6B7F"
+            }
+          ],
+          "weight": 1,
+          "fixed_size": 928
+        },
+        {
+          "type": "text",
+          "fixed_size": 118,
+          "text": "NAV|1 Retention|1 Retention|0"
+        },
+        {
+          "type": "text",
+          "fixed_size": 118,
+          "text": "NAV|2 Profit|2 Profit|0"
+        },
+        {
+          "type": "text",
+          "fixed_size": 118,
+          "text": "NAV|3 KPI|3 KPI|0"
+        },
+        {
+          "type": "text",
+          "fixed_size": 118,
+          "text": "NAV|4 Forecast|4 Forecast|1"
+        }
+      ]
+    }
+  ]
+}

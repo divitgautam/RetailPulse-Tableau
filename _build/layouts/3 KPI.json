@@ -1,0 +1,262 @@
+{
+  "type": "container",
+  "direction": "vertical",
+  "children": [
+    {
+      "type": "container",
+      "direction": "horizontal",
+      "fixed_size": 74,
+      "children": [
+        {
+          "type": "worksheet",
+          "name": "P3 Header",
+          "show_title": false,
+          "fit": "entire",
+          "weight": 1,
+          "fixed_size": 1210
+        },
+        {
+          "type": "paramctrl",
+          "parameter": "Segment Choice",
+          "mode": "compact",
+          "fixed_size": 190
+        }
+      ]
+    },
+    {
+      "type": "container",
+      "direction": "horizontal",
+      "fixed_size": 128,
+      "children": [
+        {
+          "type": "worksheet",
+          "name": "K3 PPAC",
+          "show_title": false,
+          "fit": "entire",
+          "weight": 1,
+          "fixed_size": 233
+        },
+        {
+          "type": "worksheet",
+          "name": "K3 Target",
+          "show_title": false,
+          "fit": "entire",
+          "weight": 1,
+          "fixed_size": 233
+        },
+        {
+          "type": "worksheet",
+          "name": "K3 OPC",
+          "show_title": false,
+          "fit": "entire",
+          "weight": 1,
+          "fixed_size": 233
+        },
+        {
+          "type": "worksheet",
+          "name": "K3 AOV",
+          "show_title": false,
+          "fit": "entire",
+          "weight": 1,
+          "fixed_size": 233
+        },
+        {
+          "type": "worksheet",
+          "name": "K3 Margin",
+          "show_title": false,
+          "fit": "entire",
+          "weight": 1,
+          "fixed_size": 233
+        },
+        {
+          "type": "worksheet",
+          "name": "K3 Active",
+          "show_title": false,
+          "fit": "entire",
+          "weight": 1,
+          "fixed_size": 235
+        }
+      ]
+    },
+    {
+      "type": "container",
+      "direction": "horizontal",
+      "weight": 1,
+      "children": [
+        {
+          "type": "container",
+          "direction": "vertical",
+          "weight": 3,
+          "children": [
+            {
+              "type": "worksheet",
+              "name": "T PPAC Years",
+              "show_title": false,
+              "fit": "entire",
+              "fixed_size": 58
+            },
+            {
+              "type": "worksheet",
+              "name": "PPAC by Year",
+              "show_title": false,
+              "fit": "entire",
+              "weight": 1,
+              "fixed_size": 276
+            }
+          ],
+          "fixed_size": 840
+        },
+        {
+          "type": "container",
+          "direction": "vertical",
+          "weight": 2,
+          "children": [
+            {
+              "type": "worksheet",
+              "name": "T PPAC Segment",
+              "show_title": false,
+              "fit": "entire",
+              "fixed_size": 58
+            },
+            {
+              "type": "worksheet",
+              "name": "PPAC by Segment",
+              "show_title": false,
+              "fit": "entire",
+              "weight": 1,
+              "fixed_size": 276
+            }
+          ],
+          "fixed_size": 560
+        }
+      ],
+      "fixed_size": 334
+    },
+    {
+      "type": "container",
+      "direction": "horizontal",
+      "weight": 1,
+      "children": [
+        {
+          "type": "container",
+          "direction": "vertical",
+          "weight": 3,
+          "children": [
+            {
+              "type": "worksheet",
+              "name": "T Drivers",
+              "show_title": false,
+              "fit": "entire",
+              "fixed_size": 58
+            },
+            {
+              "type": "worksheet",
+              "name": "PPAC Drivers",
+              "show_title": false,
+              "fit": "entire",
+              "weight": 1,
+              "fixed_size": 276
+            }
+          ],
+          "fixed_size": 840
+        },
+        {
+          "type": "text",
+          "runs": [
+            {
+              "text": "Why this KPI\n",
+              "bold": true,
+              "font_size": "11",
+              "font_color": "#020618",
+              "font_alignment": "0"
+            },
+            {
+              "text": "One number, three owners: ",
+              "bold": true,
+              "font_size": "9",
+              "font_color": "#682EFF",
+              "font_alignment": "0"
+            },
+            {
+              "text": "frequency (CRM), order value (merchandising), margin (pricing).\n",
+              "font_size": "9",
+              "font_color": "#020618",
+              "font_alignment": "0"
+            },
+            {
+              "text": "Read it with total profit: ",
+              "bold": true,
+              "font_size": "9",
+              "font_color": "#682EFF",
+              "font_alignment": "0"
+            },
+            {
+              "text": "winning back one-time buyers adds profit but can lower PPAC.\n",
+              "font_size": "9",
+              "font_color": "#020618",
+              "font_alignment": "0"
+            },
+            {
+              "text": "Target: ",
+              "bold": true,
+              "font_size": "9",
+              "font_color": "#682EFF",
+              "font_alignment": "0"
+            },
+            {
+              "text": "same months last year + 5%; the cards compare like-for-like months.\n",
+              "font_size": "9",
+              "font_color": "#020618",
+              "font_alignment": "0"
+            }
+          ],
+          "style": {
+            "background-color": "#FFFFFF"
+          },
+          "weight": 2,
+          "fixed_size": 560
+        }
+      ],
+      "fixed_size": 334
+    },
+    {
+      "type": "container",
+      "direction": "horizontal",
+      "fixed_size": 30,
+      "children": [
+        {
+          "type": "text",
+          "runs": [
+            {
+              "text": "Source: Online Sales Data, Jan 2023 – Oct 2025 · Extract 25 Nov 2026 · Profit excl. shipping, marketing · Synthetic data",
+              "font_size": "8",
+              "font_color": "#5B6B7F"
+            }
+          ],
+          "weight": 1,
+          "fixed_size": 928
+        },
+        {
+          "type": "text",
+          "fixed_size": 118,
+          "text": "NAV|1 Retention|1 Retention|0"
+        },
+        {
+          "type": "text",
+          "fixed_size": 118,
+          "text": "NAV|2 Profit|2 Profit|0"
+        },
+        {
+          "type": "text",
+          "fixed_size": 118,
+          "text": "NAV|3 KPI|3 KPI|1"
+        },
+        {
+          "type": "text",
+          "fixed_size": 118,
+          "text": "NAV|4 Forecast|4 Forecast|0"
+        }
+      ]
+    }
+  ]
+}

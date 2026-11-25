@@ -1,0 +1,327 @@
+{
+  "type": "container",
+  "direction": "vertical",
+  "children": [
+    {
+      "type": "container",
+      "direction": "horizontal",
+      "fixed_size": 74,
+      "children": [
+        {
+          "type": "worksheet",
+          "name": "P1 Header",
+          "show_title": false,
+          "fit": "entire",
+          "weight": 1,
+          "fixed_size": 1020
+        },
+        {
+          "type": "paramctrl",
+          "parameter": "Segment Choice",
+          "mode": "compact",
+          "fixed_size": 190
+        },
+        {
+          "type": "paramctrl",
+          "parameter": "State Choice",
+          "mode": "compact",
+          "fixed_size": 190
+        }
+      ]
+    },
+    {
+      "type": "container",
+      "direction": "horizontal",
+      "fixed_size": 128,
+      "children": [
+        {
+          "type": "worksheet",
+          "name": "K Buyers",
+          "show_title": false,
+          "fit": "entire",
+          "weight": 1,
+          "fixed_size": 233
+        },
+        {
+          "type": "worksheet",
+          "name": "K Repeat",
+          "show_title": false,
+          "fit": "entire",
+          "weight": 1,
+          "fixed_size": 233
+        },
+        {
+          "type": "worksheet",
+          "name": "K RecShare",
+          "show_title": false,
+          "fit": "entire",
+          "weight": 1,
+          "fixed_size": 233
+        },
+        {
+          "type": "worksheet",
+          "name": "K Multiplier",
+          "show_title": false,
+          "fit": "entire",
+          "weight": 1,
+          "fixed_size": 233
+        },
+        {
+          "type": "worksheet",
+          "name": "K OPB",
+          "show_title": false,
+          "fit": "entire",
+          "weight": 1,
+          "fixed_size": 233
+        },
+        {
+          "type": "worksheet",
+          "name": "K Never",
+          "show_title": false,
+          "fit": "entire",
+          "weight": 1,
+          "fixed_size": 235
+        }
+      ]
+    },
+    {
+      "type": "container",
+      "direction": "horizontal",
+      "weight": 1,
+      "children": [
+        {
+          "type": "container",
+          "direction": "vertical",
+          "weight": 1,
+          "children": [
+            {
+              "type": "worksheet",
+              "name": "T New Buyers",
+              "show_title": false,
+              "fit": "entire",
+              "fixed_size": 58
+            },
+            {
+              "type": "worksheet",
+              "name": "New Buyers by Quarter",
+              "show_title": false,
+              "fit": "entire",
+              "weight": 1,
+              "fixed_size": 276
+            }
+          ],
+          "fixed_size": 467
+        },
+        {
+          "type": "container",
+          "direction": "vertical",
+          "weight": 1,
+          "children": [
+            {
+              "type": "worksheet",
+              "name": "T Frequency",
+              "show_title": false,
+              "fit": "entire",
+              "fixed_size": 58
+            },
+            {
+              "type": "worksheet",
+              "name": "Order Frequency Mix",
+              "show_title": false,
+              "fit": "entire",
+              "weight": 1,
+              "fixed_size": 276
+            }
+          ],
+          "fixed_size": 467
+        },
+        {
+          "type": "container",
+          "direction": "vertical",
+          "weight": 1,
+          "children": [
+            {
+              "type": "worksheet",
+              "name": "T Value",
+              "show_title": false,
+              "fit": "entire",
+              "fixed_size": 58
+            },
+            {
+              "type": "worksheet",
+              "name": "Profit per Customer",
+              "show_title": false,
+              "fit": "entire",
+              "weight": 1,
+              "fixed_size": 276
+            }
+          ],
+          "fixed_size": 466
+        }
+      ],
+      "fixed_size": 334
+    },
+    {
+      "type": "container",
+      "direction": "horizontal",
+      "weight": 1,
+      "children": [
+        {
+          "type": "container",
+          "direction": "vertical",
+          "weight": 1,
+          "children": [
+            {
+              "type": "worksheet",
+              "name": "T Profit Type",
+              "show_title": false,
+              "fit": "entire",
+              "fixed_size": 58
+            },
+            {
+              "type": "worksheet",
+              "name": "Profit by Type",
+              "show_title": false,
+              "fit": "entire",
+              "weight": 1,
+              "fixed_size": 276
+            }
+          ],
+          "fixed_size": 467
+        },
+        {
+          "type": "container",
+          "direction": "vertical",
+          "weight": 1,
+          "children": [
+            {
+              "type": "worksheet",
+              "name": "T Segment",
+              "show_title": false,
+              "fit": "entire",
+              "fixed_size": 58
+            },
+            {
+              "type": "worksheet",
+              "name": "Repeat Rate by Segment",
+              "show_title": false,
+              "fit": "entire",
+              "weight": 1,
+              "fixed_size": 276
+            }
+          ],
+          "fixed_size": 467
+        },
+        {
+          "type": "text",
+          "runs": [
+            {
+              "text": "What this tells us (all customers)\n",
+              "bold": true,
+              "font_size": "11",
+              "font_color": "#020618",
+              "font_alignment": "0"
+            },
+            {
+              "text": "Retention carries profit: ",
+              "bold": true,
+              "font_size": "9",
+              "font_color": "#682EFF",
+              "font_alignment": "0"
+            },
+            {
+              "text": "recurring customers are 53% of buyers but earn 76% of gross profit.\n",
+              "font_size": "9",
+              "font_color": "#020618",
+              "font_alignment": "0"
+            },
+            {
+              "text": "Second orders are slow: ",
+              "bold": true,
+              "font_size": "9",
+              "font_color": "#682EFF",
+              "font_alignment": "0"
+            },
+            {
+              "text": "the median gap is 254 days; 54% return within 2 years. Silence is not churn.\n",
+              "font_size": "9",
+              "font_color": "#020618",
+              "font_alignment": "0"
+            },
+            {
+              "text": "The funnel is empty: ",
+              "bold": true,
+              "font_size": "9",
+              "font_color": "#682EFF",
+              "font_alignment": "0"
+            },
+            {
+              "text": "no sign-ups since 25 Sep 2024, and 80 registered customers never ordered.\n",
+              "font_size": "9",
+              "font_color": "#020618",
+              "font_alignment": "0"
+            },
+            {
+              "text": "Action: ",
+              "bold": true,
+              "font_size": "9",
+              "font_color": "#682EFF",
+              "font_alignment": "0"
+            },
+            {
+              "text": "a second-order nudge for one-time buyers and a first-order offer for the 80.\n",
+              "font_size": "9",
+              "font_color": "#020618",
+              "font_alignment": "0"
+            }
+          ],
+          "style": {
+            "background-color": "#FFFFFF"
+          },
+          "weight": 1,
+          "fixed_size": 466
+        }
+      ],
+      "fixed_size": 334
+    },
+    {
+      "type": "container",
+      "direction": "horizontal",
+      "fixed_size": 30,
+      "children": [
+        {
+          "type": "text",
+          "runs": [
+            {
+              "text": "Source: Online Sales Data, Jan 2023 – Oct 2025 · Extract 25 Nov 2026 · Profit excl. shipping, marketing · Synthetic data",
+              "font_size": "8",
+              "font_color": "#5B6B7F"
+            }
+          ],
+          "weight": 1,
+          "fixed_size": 928
+        },
+        {
+          "type": "text",
+          "fixed_size": 118,
+          "text": "NAV|1 Retention|1 Retention|1"
+        },
+        {
+          "type": "text",
+          "fixed_size": 118,
+          "text": "NAV|2 Profit|2 Profit|0"
+        },
+        {
+          "type": "text",
+          "fixed_size": 118,
+          "text": "NAV|3 KPI|3 KPI|0"
+        },
+        {
+          "type": "text",
+          "fixed_size": 118,
+          "text": "NAV|4 Forecast|4 Forecast|0"
+        }
+      ]
+    }
+  ]
+}

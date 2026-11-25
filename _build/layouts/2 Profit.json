@@ -1,0 +1,241 @@
+{
+  "type": "container",
+  "direction": "vertical",
+  "children": [
+    {
+      "type": "container",
+      "direction": "horizontal",
+      "fixed_size": 74,
+      "children": [
+        {
+          "type": "worksheet",
+          "name": "P2 Header",
+          "show_title": false,
+          "fit": "entire",
+          "weight": 1,
+          "fixed_size": 1210
+        },
+        {
+          "type": "paramctrl",
+          "parameter": "Segment Choice",
+          "mode": "compact",
+          "fixed_size": 190
+        }
+      ]
+    },
+    {
+      "type": "container",
+      "direction": "horizontal",
+      "fixed_size": 128,
+      "children": [
+        {
+          "type": "worksheet",
+          "name": "K2 GP",
+          "show_title": false,
+          "fit": "entire",
+          "weight": 1,
+          "fixed_size": 233
+        },
+        {
+          "type": "worksheet",
+          "name": "K2 NS",
+          "show_title": false,
+          "fit": "entire",
+          "weight": 1,
+          "fixed_size": 233
+        },
+        {
+          "type": "worksheet",
+          "name": "K2 Margin",
+          "show_title": false,
+          "fit": "entire",
+          "weight": 1,
+          "fixed_size": 233
+        },
+        {
+          "type": "worksheet",
+          "name": "K2 AOV",
+          "show_title": false,
+          "fit": "entire",
+          "weight": 1,
+          "fixed_size": 233
+        },
+        {
+          "type": "worksheet",
+          "name": "K2 Top",
+          "show_title": false,
+          "fit": "entire",
+          "weight": 1,
+          "fixed_size": 233
+        },
+        {
+          "type": "worksheet",
+          "name": "K2 Low",
+          "show_title": false,
+          "fit": "entire",
+          "weight": 1,
+          "fixed_size": 235
+        }
+      ]
+    },
+    {
+      "type": "container",
+      "direction": "horizontal",
+      "weight": 1,
+      "children": [
+        {
+          "type": "container",
+          "direction": "vertical",
+          "weight": 1,
+          "children": [
+            {
+              "type": "worksheet",
+              "name": "T GP Category",
+              "show_title": false,
+              "fit": "entire",
+              "fixed_size": 58
+            },
+            {
+              "type": "worksheet",
+              "name": "Profit by Category",
+              "show_title": false,
+              "fit": "entire",
+              "weight": 1,
+              "fixed_size": 276
+            }
+          ],
+          "fixed_size": 700
+        },
+        {
+          "type": "container",
+          "direction": "vertical",
+          "weight": 1,
+          "children": [
+            {
+              "type": "worksheet",
+              "name": "T Margin Category",
+              "show_title": false,
+              "fit": "entire",
+              "fixed_size": 58
+            },
+            {
+              "type": "worksheet",
+              "name": "Margin by Category",
+              "show_title": false,
+              "fit": "entire",
+              "weight": 1,
+              "fixed_size": 276
+            }
+          ],
+          "fixed_size": 700
+        }
+      ],
+      "fixed_size": 334
+    },
+    {
+      "type": "container",
+      "direction": "horizontal",
+      "weight": 1,
+      "children": [
+        {
+          "type": "container",
+          "direction": "vertical",
+          "weight": 1,
+          "children": [
+            {
+              "type": "text",
+              "runs": [
+                {
+                  "text": "Top 10 subcategories by gross profit, ₹ L\n",
+                  "bold": true,
+                  "font_size": "10",
+                  "font_color": "#020618",
+                  "font_alignment": "0"
+                },
+                {
+                  "text": "Click a category above to filter",
+                  "font_size": "9",
+                  "font_color": "#62748E",
+                  "font_alignment": "0"
+                }
+              ],
+              "fixed_size": 58
+            },
+            {
+              "type": "worksheet",
+              "name": "Profit by Subcategory",
+              "show_title": false,
+              "fit": "entire",
+              "weight": 1,
+              "fixed_size": 276
+            }
+          ],
+          "fixed_size": 700
+        },
+        {
+          "type": "container",
+          "direction": "vertical",
+          "weight": 1,
+          "children": [
+            {
+              "type": "worksheet",
+              "name": "T Discount",
+              "show_title": false,
+              "fit": "entire",
+              "fixed_size": 58
+            },
+            {
+              "type": "worksheet",
+              "name": "Margin by Discount",
+              "show_title": false,
+              "fit": "entire",
+              "weight": 1,
+              "fixed_size": 276
+            }
+          ],
+          "fixed_size": 700
+        }
+      ],
+      "fixed_size": 334
+    },
+    {
+      "type": "container",
+      "direction": "horizontal",
+      "fixed_size": 30,
+      "children": [
+        {
+          "type": "text",
+          "runs": [
+            {
+              "text": "Source: Online Sales Data, Jan 2023 – Oct 2025 · Extract 25 Nov 2026 · Profit excl. shipping, marketing · Synthetic data",
+              "font_size": "8",
+              "font_color": "#5B6B7F"
+            }
+          ],
+          "weight": 1,
+          "fixed_size": 928
+        },
+        {
+          "type": "text",
+          "fixed_size": 118,
+          "text": "NAV|1 Retention|1 Retention|0"
+        },
+        {
+          "type": "text",
+          "fixed_size": 118,
+          "text": "NAV|2 Profit|2 Profit|1"
+        },
+        {
+          "type": "text",
+          "fixed_size": 118,
+          "text": "NAV|3 KPI|3 KPI|0"
+        },
+        {
+          "type": "text",
+          "fixed_size": 118,
+          "text": "NAV|4 Forecast|4 Forecast|0"
+        }
+      ]
+    }
+  ]
+}
