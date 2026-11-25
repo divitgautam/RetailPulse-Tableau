@@ -1,0 +1,57 @@
+{
+  "type": "container",
+  "direction": "vertical",
+  "children": [
+    {
+      "type": "text",
+      "text": "RetailPulse \u2014 Sales Overview (revenue orders only)",
+      "fixed_size": 50,
+      "font_size": "18",
+      "bold": true
+    },
+    {
+      "type": "worksheet",
+      "name": "KPIs",
+      "fixed_size": 130
+    },
+    {
+      "type": "container",
+      "direction": "horizontal",
+      "weight": 1,
+      "children": [
+        {
+          "type": "worksheet",
+          "name": "Net Sales Trend",
+          "weight": 2
+        },
+        {
+          "type": "worksheet",
+          "name": "Net Sales by Category",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "type": "container",
+      "direction": "horizontal",
+      "weight": 1,
+      "children": [
+        {
+          "type": "worksheet",
+          "name": "Margin by Category",
+          "weight": 1
+        },
+        {
+          "type": "worksheet",
+          "name": "Net Sales by State",
+          "weight": 1
+        },
+        {
+          "type": "worksheet",
+          "name": "Orders by Payment Method",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}

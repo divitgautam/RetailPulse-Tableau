@@ -1,0 +1,22 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Data: the extract is rebuilt from the RetailPulse-PBI parquet files (source data stays local)
+data/
+*.hyper
+*.twbx
+
+# Tableau Desktop local files
+*.tdsx
+Bookmarks/
+Logs/
+
+# Machine-specific MCP config (copy .mcp.json.example and set your path)
+.mcp.json
+
+# Hyper engine log and Tableau autosave/recovery files
+*.log
+~*.twbr
+

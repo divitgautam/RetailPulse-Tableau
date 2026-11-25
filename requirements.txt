@@ -1,0 +1,5 @@
+cwtwb==0.28.0
+tableauhyperapi==0.0.26963
+pandas>=3.0
+pyarrow>=20
+mcp>=1.30
