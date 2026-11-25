@@ -8,6 +8,9 @@ modelling MCP, and it was scored with the same 10-point rubric as the Power BI r
 **Score: 10 / 10** on the dashboard scorecard (from 4.5 for v1), in the same visual style as the Power BI report. See [docs/review/scorecard.md](docs/review/scorecard.md).
 Every number on the dashboards reconciles with an independent pandas calculation.
 
+The reusable kit, scripts and optimized workflow from this build live in
+[tableau-modelling-mcp](https://github.com/divitgautam/tableau-modelling-mcp).
+
 | | |
 |---|---|
 | ![Retention](docs/dashboard/01_retention.png) | ![Profit](docs/dashboard/02_profit.png) |
